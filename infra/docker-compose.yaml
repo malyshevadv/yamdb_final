@@ -10,7 +10,7 @@ services:
     image: daryamalysheva/api_yamdb:latest
     restart: always
     volumes:
-      - static_value:/app/static/
+      - static_value:/app/static_/
       - media_value:/app/media/
     depends_on:
       - db
