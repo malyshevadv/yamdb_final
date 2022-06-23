@@ -8,6 +8,7 @@
 
 ### Доступ к проекту
 Проект развернут на удаленном сервере: http://praktikum-dm.hopto.org/api/v1/
+
 Регистрация на сайте доступна по адресу: http://praktikum-dm.hopto.org/api/v1/auth/signup/
 
 ### CI/CD
