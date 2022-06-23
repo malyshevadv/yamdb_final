@@ -19,47 +19,26 @@
 
 ### Как запустить проект локально:
 
-Клонировать репозиторий и перейти в него в командной строке:
-
+### Как запустить проект:
+Проект работает на основе контейнеров. Для создания контейнеров из папки infra выполнить:
 ```
-git clone https://github.com/malyshevadv/api_yamdb
-```
-
-```
-cd api_yamdb
+docker-compose up -d --build
 ```
 
-Cоздать и активировать виртуальное окружение:
-
+Для запуска на основе готовых контейнеров:
 ```
-python3 -m venv env
-```
-
-```
-source env/bin/activate
+docker-compose pull
+docker-compose up -d --no-build
 ```
 
-Установить зависимости из файла requirements.txt:
-
+При первом деплое выполнить:
 ```
-python3 -m pip install --upgrade pip
-```
-
-```
-pip install -r requirements.txt
+docker-compose exec web-food python manage.py makemigrations
+docker-compose exec web-food python manage.py migrate --no-input
+docker-compose exec web-food python manage.py collectstatic --no-input
+docker-compose exec web cp -a static_temp/. /static/
 ```
 
-Выполнить миграции:
-
-```
-python3 manage.py migrate
-```
-
-Запустить проект:
-
-```
-python3 manage.py runserver
-```
 
 
 ## Заполнение базы данными
